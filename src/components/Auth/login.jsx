@@ -11,7 +11,7 @@ function Login() {
     setPassword("");
   };
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
+    <div className="flex justify-center items-center h-screen bg-[#1c1c1c]">
       <div className="border-2 rounded-lg  border-emerald-500">
         <form
           className="bg-gray-800 p-8 border-emerald-500 rounded shadow-md w-96"
