@@ -1,10 +1,11 @@
-import { stringify } from "postcss";
 
 const employees = [
   {
     id: 1,
+    firstName: "Faizan",
     email: "faizan@company.com",
     password: "123",
+    taskCount: { active: 2, newTask: 1, completed: 1, failed: 0 },
     tasks: [
       {
         title: "Design Landing Page",
@@ -42,8 +43,10 @@ const employees = [
   },
   {
     id: 2,
+    firstName: "Ali",
     email: "ali@company.com",
     password: "123",
+    taskCount: { active: 3, newTask: 6, completed: 1, failed: 2 },
     tasks: [
       {
         title: "Build Login Page",
@@ -82,8 +85,10 @@ const employees = [
   },
   {
     id: 3,
+    firstName: "Maryam",
     email: "maryam@company.com",
     password: "123",
+    taskCount: { active: 1, newTask: 1, completed: 3, failed: 0 },
     tasks: [
       {
         title: "UI Prototype in Figma",
@@ -120,8 +125,10 @@ const employees = [
   },
   {
     id: 4,
+    firstName: "Usman",
     email: "usman@company.com",
     password: "123",
+    taskCount: { active: 0, newTask: 1, completed: 0, failed: 0 },
     tasks: [
       {
         title: "API Integration",
@@ -158,8 +165,10 @@ const employees = [
   },
   {
     id: 5,
+    firstName: "Sara",
     email: "sara@company.com",
     password: "123",
+    taskCount: { active: 1, newTask: 3, completed: 1, failed: 2 },
     tasks: [
       {
         title: "Testing User Dashboard",
@@ -195,6 +204,7 @@ const employees = [
     ],
   },
 ];
+
 
 const admin = [
   {
