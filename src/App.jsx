@@ -23,8 +23,10 @@ function App() {
     if (email === "admin@me.com" && password === "123") {
       setuser({ role: "admin" });
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
-    } else if (authdata) {
-      const employee = authdata.employees.find(
+    } else {
+      // Always use latest employees from localStorage for employee login
+      const employees = JSON.parse(localStorage.getItem("employees")) || [];
+      const employee = employees.find(
         (e) => e.email === email && e.password === password
       );
 
@@ -33,14 +35,37 @@ function App() {
         setLoggedUserData(employee);
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee" })
+          JSON.stringify({ role: "employee", employeeId: employee.id })
         );
       } else {
         alert("Invalid Candidate");
       }
-    } else {
-      alert("Invalid Candidate");
     }
+  };
+
+  // Restore session on refresh
+  useEffect(() => {
+    const saved = localStorage.getItem("loggedInUser");
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed?.role === "admin") {
+        setuser({ role: "admin" });
+      } else if (parsed?.role === "employee" && parsed?.employeeId) {
+        const employees = JSON.parse(localStorage.getItem("employees")) || [];
+        const employee = employees.find((e) => e.id === parsed.employeeId);
+        if (employee) {
+          setuser({ role: "employee" });
+          setLoggedUserData(employee);
+        }
+      }
+    } catch {}
+  }, []);
+
+  const handleLogout = () => {
+    setuser(null);
+    setLoggedUserData(null);
+    localStorage.removeItem("loggedInUser");
   };
 
   // useEffect(() => {
@@ -53,9 +78,9 @@ function App() {
       {!user ? (
         <Login handleLogin={handleLogin} />
       ) : user.role === "admin" ? (
-        <AdminDashboard />
+        <AdminDashboard onLogout={handleLogout} />
       ) : user.role === "employee" ? (
-        <EmployeeDashboard data={LoggedUserData} />
+        <EmployeeDashboard data={LoggedUserData} onLogout={handleLogout} />
       ) : null}
     </>
   );

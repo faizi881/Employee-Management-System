@@ -12,10 +12,12 @@ function Login({ handleLogin }) {
     setPassword("");
   };
   return (
-    <div className="flex justify-center items-center h-screen bg-[#1c1c1c]">
-      <div className="border-2 rounded-lg  border-emerald-500">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="pointer-events-none absolute -top-40 -left-40 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl"></div>
+      <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-emerald-600/20 blur-3xl"></div>
+      <div className="relative border border-gray-700 rounded-2xl bg-[#12161a] shadow-xl shadow-emerald-900/10">
         <form
-          className="bg-gray-800 p-8 border-emerald-500 rounded shadow-md w-96"
+          className="p-8 w-[380px]"
           onSubmit={submitHandler}
         >
           <h2 className="text-white text-2xl mb-6 text-center">Login</h2>
@@ -26,7 +28,7 @@ function Login({ handleLogin }) {
             required
             type="email"
             placeholder="Email"
-            className="w-full p-2 mb-4 border border-emerald-700 rounded-xl bg-gray-700 text-white"
+            className="w-full p-2 mb-4 border border-gray-700 rounded-xl bg-[#0b0f14] text-white focus:outline-none focus:border-emerald-500/70"
           />
 
           <input
@@ -35,11 +37,11 @@ function Login({ handleLogin }) {
             required
             type="password"
             placeholder="Password"
-            className="w-full p-2 mb-4 border border-emerald-700 rounded-xl bg-gray-700 text-white"
+            className="w-full p-2 mb-4 border border-gray-700 rounded-xl bg-[#0b0f14] text-white focus:outline-none focus:border-emerald-500/70"
           />
 
           <div className="flex justify-center">
-            <button className="mt-5 text-white border-none outline-none bg-emerald-600 text-xl py-3 px-5 rounded-xl hover:bg-emerald-700 cursor-pointer">
+            <button className="mt-2 text-white bg-gradient-to-r from-emerald-600 to-emerald-500 py-3 px-5 rounded-xl hover:from-emerald-500 hover:to-emerald-400 cursor-pointer border border-emerald-400/30">
               Login
             </button>
           </div>
