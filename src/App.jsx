@@ -2,29 +2,20 @@ import Login from "./components/Auth/login";
 import EmployeeDashboard from "./components/Auth/Dashboard/employDashboard";
 import AdminDashboard from "./components/Auth/Dashboard/adminDashboard";
 import "./App.css";
-import { useContext, useEffect, useState } from "react";
-// import { getLocalStorage, setLocalStorage } from "./utils/localStroge";
+import {  useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthProvider";
 
 function App() {
   const [user, setuser] = useState(null);
-  const authdata = useContext(AuthContext);
+  // const authdata = useContext(AuthContext);
   const [LoggedUserData, setLoggedUserData] = useState(null);
-  // useEffect(() => {
-  //   if (authdata) {
-  //     const loggedInUser = localStorage.getItem("Logged User");
-  //     if (loggedInUser) {
-  //       setuser(loggedInUser.role);
-  //     }
-  //   }
-  // }, [authdata]);
+  
 
   const handleLogin = (email, password) => {
     if (email === "admin@me.com" && password === "123") {
       setuser({ role: "admin" });
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
     } else {
-      // Always use latest employees from localStorage for employee login
       const employees = JSON.parse(localStorage.getItem("employees")) || [];
       const employee = employees.find(
         (e) => e.email === email && e.password === password
@@ -43,7 +34,6 @@ function App() {
     }
   };
 
-  // Restore session on refresh
   useEffect(() => {
     const saved = localStorage.getItem("loggedInUser");
     if (!saved) return;
@@ -59,7 +49,9 @@ function App() {
           setLoggedUserData(employee);
         }
       }
-    } catch {}
+    } catch {
+      console.error("Failed to parse loggedInUser from localStorage");
+    }
   }, []);
 
   const handleLogout = () => {
@@ -68,10 +60,7 @@ function App() {
     localStorage.removeItem("loggedInUser");
   };
 
-  // useEffect(() => {
-  //   // setLocalStorage()
-  //   getLocalStorage();
-  // });
+  
 
   return (
     <>

@@ -60,7 +60,6 @@ function CreateTask() {
       <div className="max-w-4xl mx-auto mt-6 bg-[#12161a] border border-gray-700 rounded-2xl shadow-xl shadow-emerald-900/10 p-6">
         <h1 className="text-2xl font-semibold text-center mb-6 text-gray-200">Create New Task</h1>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
-          {/* LEFT SIDE — All Inputs */}
           <div className="col-span-1 flex flex-col gap-4">
             <div>
               <h3 className="text-gray-300 mb-1 text-sm">Task Title</h3>
@@ -92,7 +91,6 @@ function CreateTask() {
               Create Task
             </button>
           </div>
-          {/* RIGHT SIDE — Description */}
           <div className="col-span-1">
             <h3 className="text-gray-300 mb-1 text-sm">Description</h3>
             <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Describe the task" className="w-full h-[280px] px-3 py-2 rounded-lg bg-[#0b0f14] border border-gray-700   
