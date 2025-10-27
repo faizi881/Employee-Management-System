@@ -2,14 +2,13 @@ import Login from "./components/Auth/login";
 import EmployeeDashboard from "./components/Auth/Dashboard/employDashboard";
 import AdminDashboard from "./components/Auth/Dashboard/adminDashboard";
 import "./App.css";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthProvider";
 
 function App() {
   const [user, setuser] = useState(null);
   // const authdata = useContext(AuthContext);
   const [LoggedUserData, setLoggedUserData] = useState(null);
-  
 
   const handleLogin = (email, password) => {
     if (email === "admin@me.com" && password === "123") {
@@ -59,8 +58,6 @@ function App() {
     setLoggedUserData(null);
     localStorage.removeItem("loggedInUser");
   };
-
-  
 
   return (
     <>

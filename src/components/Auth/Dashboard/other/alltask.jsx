@@ -26,12 +26,23 @@ function AllTasks() {
         </div>
 
         {employees.map((emp) => (
-          <div key={emp.id} className="grid grid-cols-5 gap-4 items-center text-white px-2 py-2 rounded hover:bg-[#0f1317]">
+          <div
+            key={emp.id}
+            className="grid grid-cols-5 gap-4 items-center text-white px-2 py-2 rounded hover:bg-[#0f1317]"
+          >
             <div className="font-semibold text-gray-200">{emp.firstName}</div>
-            <div className="text-blue-300/90">{emp?.taskCount?.newTask ?? 0}</div>
-            <div className="text-pink-300/90">{emp?.taskCount?.active ?? 0}</div>
-            <div className="text-emerald-300/90">{emp?.taskCount?.completed ?? 0}</div>
-            <div className="text-yellow-300/90">{emp?.taskCount?.failed ?? 0}</div>
+            <div className="text-blue-300/90">
+              {emp?.taskCount?.newTask ?? 0}
+            </div>
+            <div className="text-pink-300/90">
+              {emp?.taskCount?.active ?? 0}
+            </div>
+            <div className="text-emerald-300/90">
+              {emp?.taskCount?.completed ?? 0}
+            </div>
+            <div className="text-yellow-300/90">
+              {emp?.taskCount?.failed ?? 0}
+            </div>
           </div>
         ))}
       </div>

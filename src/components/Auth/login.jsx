@@ -6,8 +6,6 @@ function Login({ handleLogin }) {
   const submitHandler = (e) => {
     e.preventDefault();
     handleLogin(email, password);
-    console.log("Email is :", email);
-    console.log("Password is :", password);
     setEmail("");
     setPassword("");
   };
@@ -16,10 +14,7 @@ function Login({ handleLogin }) {
       <div className="pointer-events-none absolute -top-40 -left-40 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl"></div>
       <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-emerald-600/20 blur-3xl"></div>
       <div className="relative border border-gray-700 rounded-2xl bg-[#12161a] shadow-xl shadow-emerald-900/10">
-        <form
-          className="p-8 w-[380px]"
-          onSubmit={submitHandler}
-        >
+        <form className="p-8 w-[380px]" onSubmit={submitHandler}>
           <h2 className="text-white text-2xl mb-6 text-center">Login</h2>
 
           <input

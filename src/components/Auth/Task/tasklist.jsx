@@ -61,10 +61,17 @@ function TaskList({ data }) {
         className="h-[60%] overflow-x-auto flex items-center gap-6 flex-nowrap justify-start w-full p-6 mt-10"
       >
         <NewTask items={newItems} onAccept={handleAccept}></NewTask>
-        <Accepted items={acceptedItems} onComplete={handleMarkCompleted} onFail={handleMarkFailed}></Accepted>
-        <Complete items={completedItems} onComplete={handleMarkCompleted} onFail={handleMarkFailed}></Complete>
+        <Accepted
+          items={acceptedItems}
+          onComplete={handleMarkCompleted}
+          onFail={handleMarkFailed}
+        ></Accepted>
+        <Complete
+          items={completedItems}
+          onComplete={handleMarkCompleted}
+          onFail={handleMarkFailed}
+        ></Complete>
         <Failed items={failedItems}></Failed>
-       
       </div>
     </>
   );

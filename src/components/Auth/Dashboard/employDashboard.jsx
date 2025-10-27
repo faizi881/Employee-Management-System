@@ -30,7 +30,7 @@ function EmployeeDashboard({ data, onLogout }) {
           <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
           Employee ID: {emp?.id}
         </div>
-        {emp && <TaskListNum data={emp} />} 
+        {emp && <TaskListNum data={emp} />}
         {emp && <TaskList data={emp} />}
       </div>
     </div>
